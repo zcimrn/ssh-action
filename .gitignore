@@ -1,0 +1,4 @@
+!.gitignore
+!/Dockerfile
+!/entrypoint.sh
+!/action.yaml

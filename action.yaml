@@ -1,0 +1,35 @@
+name: 'SSH command'
+description: 'Run ssh command'
+author: 'zcimrn'
+
+inputs:
+    host:
+        description: 'ssh host'
+        required: true
+    port:
+        description: 'ssh port'
+        required: false
+        default: '22'
+    user:
+        description: 'ssh user'
+        required: true
+    key:
+        description: 'ssh key'
+        required: true
+    command:
+        description: 'ssh command'
+        default: 'echo Hello, World!'
+
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
+    env:
+        HOST: ${{ inputs.host }}
+        PORT: ${{ inputs.port }}
+        USER: ${{ inputs.user }}
+        KEY: ${{ inputs.key }}
+        COMMAND: ${{ inputs.command }}
+
+branding:
+    icon: 'terminal'
+    color: 'white'
